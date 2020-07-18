@@ -1,12 +1,12 @@
-import planesTest.ExperimentalPlaneTest;
+import planes.ExperimentalPlane;
 import models.SecrecyLevel;
 import models.ExperimentalType;
 import models.MilitaryType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import planesTest.MilitaryPlane;
-import planesTest.PassengerPlane;
-import planesTest.Plane;
+import planes.MilitaryPlane;
+import planes.PassengerPlane;
+import planes.Plane;
 
 import java.util.*;
 
@@ -26,8 +26,8 @@ public class AirportTest {
             new MilitaryPlane("F-15", 1500, 12000, 10000, MilitaryType.FIGHTER),
             new MilitaryPlane("F-22", 1550, 13000, 11000, MilitaryType.FIGHTER),
             new MilitaryPlane("C-130 Hercules", 650, 5000, 110000, MilitaryType.TRANSPORT),
-            new ExperimentalPlaneTest("Bell X-14", 277, 482, 500, ExperimentalType.HIGH_ALTITUDE, SecrecyLevel.SECRET),
-            new ExperimentalPlaneTest("Ryan X-13 Vertijet", 560, 307, 500, ExperimentalType.VTOL, SecrecyLevel.TOP_SECRET)
+            new ExperimentalPlane("Bell X-14", 277, 482, 500, ExperimentalType.HIGH_ALTITUDE, SecrecyLevel.SECRET),
+            new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, ExperimentalType.VTOL, SecrecyLevel.TOP_SECRET)
     );
 
     private static PassengerPlane planeWithMaxPassengerCapacity = new PassengerPlane("Boeing-747", 980, 16100, 70500, 242);
@@ -64,7 +64,7 @@ public class AirportTest {
     @Test
     public void testExperimentalPlanesHasSecrecyLevelHigherThanUnclassified(){
         Airport airport = new Airport(planes);
-        List<ExperimentalPlaneTest> experimentalPlanes = airport.getExperimentalPlanes();
+        List<ExperimentalPlane> experimentalPlanes = airport.getExperimentalPlanes();
         Assert.assertFalse(airport.checkExperimentalPlanesHasNoUnclassifiedLevel(experimentalPlanes));
     }
 }

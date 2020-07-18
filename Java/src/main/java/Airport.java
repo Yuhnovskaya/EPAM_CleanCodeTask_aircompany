@@ -1,9 +1,9 @@
 import models.SecrecyLevel;
-import planesTest.ExperimentalPlaneTest;
+import planes.ExperimentalPlane;
 import models.MilitaryType;
-import planesTest.MilitaryPlane;
-import planesTest.PassengerPlane;
-import planesTest.Plane;
+import planes.MilitaryPlane;
+import planes.PassengerPlane;
+import planes.Plane;
 
 import java.util.*;
 
@@ -77,11 +77,11 @@ class Airport {
     }
 
     public
-    List<ExperimentalPlaneTest> getExperimentalPlanes() {
-        List<ExperimentalPlaneTest> experimentalPlanes = new ArrayList<>();
+    List<ExperimentalPlane> getExperimentalPlanes() {
+        List<ExperimentalPlane> experimentalPlanes = new ArrayList<>();
         for (Plane plane : planes) {
-            if (plane instanceof ExperimentalPlaneTest) {
-                experimentalPlanes.add((ExperimentalPlaneTest) plane);
+            if (plane instanceof ExperimentalPlane) {
+                experimentalPlanes.add((ExperimentalPlane) plane);
             }
         }
         return experimentalPlanes;
@@ -185,9 +185,9 @@ class Airport {
     }
 
     public
-    boolean checkExperimentalPlanesHasNoUnclassifiedLevel(List<ExperimentalPlaneTest> experimentalPlanes) {
+    boolean checkExperimentalPlanesHasNoUnclassifiedLevel(List<ExperimentalPlane> experimentalPlanes) {
         boolean hasNoUnclassifiedPlanes = false;
-        for (ExperimentalPlaneTest experimentalPlane : experimentalPlanes) {
+        for (ExperimentalPlane experimentalPlane : experimentalPlanes) {
             if (experimentalPlane.getSecrecyLevel() == SecrecyLevel.UNCLASSIFIED) {
                 hasNoUnclassifiedPlanes = true;
                 break;

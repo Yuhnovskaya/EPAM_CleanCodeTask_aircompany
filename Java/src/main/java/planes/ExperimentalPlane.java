@@ -1,16 +1,16 @@
-package planesTest;
+package planes;
 
 import models.SecrecyLevel;
 import models.ExperimentalType;
 
 import java.util.Objects;
 
-public class ExperimentalPlaneTest extends Plane{
+public class ExperimentalPlane extends Plane{
     private SecrecyLevel secrecyLevel;
     private ExperimentalType experimentalType;
 
     public
-    ExperimentalPlaneTest(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ExperimentalType experimentalType, SecrecyLevel secrecyLevel) {
+    ExperimentalPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ExperimentalType experimentalType, SecrecyLevel secrecyLevel) {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
         this.secrecyLevel = secrecyLevel;
         this.experimentalType=experimentalType;
@@ -31,7 +31,7 @@ public class ExperimentalPlaneTest extends Plane{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        ExperimentalPlaneTest that = (ExperimentalPlaneTest) o;
+        ExperimentalPlane that = (ExperimentalPlane) o;
         return secrecyLevel == that.secrecyLevel &&
                 experimentalType == that.experimentalType;
     }
