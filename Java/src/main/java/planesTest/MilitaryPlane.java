@@ -1,4 +1,4 @@
-package planes;
+package planesTest;
 
 import models.MilitaryType;
 
