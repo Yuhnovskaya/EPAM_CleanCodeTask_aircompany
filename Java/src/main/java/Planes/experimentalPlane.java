@@ -1,41 +1,52 @@
-package Planes;
+package planes;
 
-import models.ClassificationLevel;
-import models.ExperimentalTypes;
+import models.SecrecyLevel;
+import models.ExperimentalType;
 
-public class experimentalPlane extends Plane{
+import java.util.Objects;
 
-    private ExperimentalTypes type;
-    private ClassificationLevel classificationLevel;
+public class ExperimentalPlane extends Plane{
+    private SecrecyLevel secrecyLevel;
+    private ExperimentalType experimentalType;
 
-    public experimentalPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ExperimentalTypes type, ClassificationLevel classificationLevel) {
+    public ExperimentalPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ExperimentalType experimentalType, SecrecyLevel secrecyLevel) {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
-        this.type = type;
-        this.classificationLevel = classificationLevel;
+        this.secrecyLevel = secrecyLevel;
+        this.experimentalType=experimentalType;
     }
 
-    public ClassificationLevel getClassificationLevel(){
-        return classificationLevel;
+    public SecrecyLevel getSecrecyLevel(){
+        return secrecyLevel;
     }
 
-    public void setClassificationLevel(ClassificationLevel classificationLevel){
-        this.classificationLevel = classificationLevel;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
+    public
+    ExperimentalType getExperimentalType() {
+        return experimentalType;
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public
+    boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        ExperimentalPlane that = (ExperimentalPlane) o;
+        return secrecyLevel == that.secrecyLevel &&
+                experimentalType == that.experimentalType;
     }
 
     @Override
-    public String toString() {
-        return "experimentalPlane{" +
-                "model='" + model + '\'' +
+    public
+    int hashCode() {
+        return Objects.hash(super.hashCode(), secrecyLevel, experimentalType);
+    }
+
+    @Override
+    public
+    String toString() {
+        return "ExperimentalPlane{" +
+                "secrecyLevel=" + secrecyLevel +
+                ", experimentalType=" + experimentalType +
                 '}';
     }
 }
